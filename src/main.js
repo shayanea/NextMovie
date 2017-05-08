@@ -42,6 +42,7 @@ new Vue({
     root: '#app',
     /* Uncomment to enable Material theme: */
     // material: true,
+    swipePanel: 'left',
     routes: Routes,
   },
   // Register App Component

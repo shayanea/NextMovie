@@ -1,6 +1,6 @@
 <template>
     <div>
-        <f7-searchbar cancel-link="" placeholder="Search in Movies" :clear-button="true" search-list="#search-list"></f7-searchbar>
+        <f7-searchbar cancel-link="" placeholder="Search in Movies" :clear-button="true" @searchbar:search="onSearch"></f7-searchbar>
         <loader :show="loading"></loader>
         <f7-block-title v-if="!loading">
             Popular Movies
@@ -57,6 +57,9 @@ export default {
         FullContent : function (data) {
             return this.$f7.mainView.router.load({url: '/fullpage/'}),
             State['query'] = data;
+        },
+        onSearch : function (query){
+            console.log(query);
         }
     }
 }

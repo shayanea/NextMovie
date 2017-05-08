@@ -1,6 +1,6 @@
 <template>
     <ul class="star">
-        <li class="filled">
+        <li class="unfilled" :class="{'filled' : FillStart >= 1}">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 49.94 49.94" style="enable-background:new 0 0 49.94 49.94;" xml:space="preserve">
                 <path d="M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757
                 c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042
@@ -10,7 +10,7 @@
                 C22.602,0.567,25.338,0.567,26.285,2.486z" />
             </svg>
         </li>
-        <li class="filled">
+        <li class="unfilled" :class="{'filled' : FillStart >= 2}">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 49.94 49.94" style="enable-background:new 0 0 49.94 49.94;" xml:space="preserve">
                 <path d="M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757
                 c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042
@@ -20,7 +20,7 @@
                 C22.602,0.567,25.338,0.567,26.285,2.486z" />
             </svg>
         </li>
-        <li class="filled">
+        <li class="unfilled" :class="{'filled' : FillStart >= 3}">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 49.94 49.94" style="enable-background:new 0 0 49.94 49.94;" xml:space="preserve">
                 <path d="M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757
                 c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042
@@ -30,7 +30,7 @@
                 C22.602,0.567,25.338,0.567,26.285,2.486z" />
             </svg>
         </li>
-        <li class="filled">
+        <li class="unfilled" :class="{'filled' : FillStart >= 4}">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 49.94 49.94" style="enable-background:new 0 0 49.94 49.94;" xml:space="preserve">
                 <path d="M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757
                 c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042
@@ -40,7 +40,7 @@
                 C22.602,0.567,25.338,0.567,26.285,2.486z" />
             </svg>
         </li>
-        <li class="unfilled">
+        <li class="unfilled" :class="{'filled' : FillStart >= 5}">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 49.94 49.94" style="enable-background:new 0 0 49.94 49.94;" xml:space="preserve">
                 <path d="M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757
                 c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042
@@ -64,51 +64,12 @@ export default {
     },
     data() {
         return {
-            stars: [
-                {
-                    id: 0,
-                    value: false
-                }, {
-                    id: 1,
-                    value: false
-                }, {
-                    id: 2,
-                    value: false
-                }, {
-                    id: 3,
-                    value: false
-                }, {
-                    id: 4,
-                    value: false
-                }
-            ]
+            star: this.rate
         }
     },
     computed: {
         FillStart() {
-            console.log(this.rate)
-            if (this.rate > 0 && this.rate <= 2) {
-                return this.stars[0].value = true;
-            } else if (this.rate > 2 && this.rate <= 4) {
-                return this.stars[0].value = true,
-                    this.stars[1].value = true;
-            } else if (this.rate > 4 && this.rate <= 6) {
-                return this.stars[0].value = true,
-                    this.stars[1].value = true,
-                    this.stars[2].value = true;
-            } else if (this.rate > 6 && this.rate <= 8) {
-                return this.stars[0].value = true,
-                    this.stars[1].value = true,
-                    this.stars[2].value = true,
-                    this.stars[3].value = true;
-            } else if (this.rate > 8 && this.rate <= 10) {
-                return this.stars[0].value = true,
-                    this.stars[1].value = true,
-                    this.stars[2].value = true,
-                    this.stars[3].value = true,
-                    this.stars[4].value = true;
-            }
-            return this.stars;
+            return this.rate / 2;
         }
     }
 }
