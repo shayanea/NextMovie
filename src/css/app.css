@@ -1,0 +1,48 @@
+/* Global Config */
+*
+{
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+input
+{
+-webkit-user-select: auto !important;
+-khtml-user-select: auto !important;
+-moz-user-select: auto !important;
+-ms-user-select: auto !important;
+user-select: auto !important;
+}
+html,body{
+    background: transparent
+}
+.views{
+    top: -20px;
+    height: calc(100% + 20px);
+}
+/* Navbar Config */
+.navbar{
+    height: 45px;
+    background: transparent;
+}
+.navbar-fixed .page-content, .navbar-through .page-content{
+    padding-top: 45px;
+}
+.navbar:after{
+    background-color: transparent;
+}
+.navbar .center{
+    font-weight: 400!important;
+    color: #fff;
+}
+.statusbar-overlay{
+    background: transparent;
+}
+/* Main Page Config */
+html,body,.main_page.page{
+    background: linear-gradient(-133deg, #2ce9c6 0%, #7853fb 100%);
+    /*border-radius: 14px;*/
+}

@@ -1,0 +1,146 @@
+<template>
+    <ul class="star">
+        <li class="filled">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 49.94 49.94" style="enable-background:new 0 0 49.94 49.94;" xml:space="preserve">
+                <path d="M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757
+                c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042
+                c0.362,2.109-1.852,3.717-3.746,2.722l-10.814-5.685c-0.752-0.395-1.651-0.395-2.403,0l-10.814,5.685
+                c-1.894,0.996-4.108-0.613-3.746-2.722l2.065-12.042c0.144-0.837-0.134-1.692-0.742-2.285l-8.749-8.528
+                c-1.532-1.494-0.687-4.096,1.431-4.403l12.091-1.757c0.841-0.122,1.568-0.65,1.944-1.412l5.407-10.956
+                C22.602,0.567,25.338,0.567,26.285,2.486z" />
+            </svg>
+        </li>
+        <li class="filled">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 49.94 49.94" style="enable-background:new 0 0 49.94 49.94;" xml:space="preserve">
+                <path d="M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757
+                c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042
+                c0.362,2.109-1.852,3.717-3.746,2.722l-10.814-5.685c-0.752-0.395-1.651-0.395-2.403,0l-10.814,5.685
+                c-1.894,0.996-4.108-0.613-3.746-2.722l2.065-12.042c0.144-0.837-0.134-1.692-0.742-2.285l-8.749-8.528
+                c-1.532-1.494-0.687-4.096,1.431-4.403l12.091-1.757c0.841-0.122,1.568-0.65,1.944-1.412l5.407-10.956
+                C22.602,0.567,25.338,0.567,26.285,2.486z" />
+            </svg>
+        </li>
+        <li class="filled">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 49.94 49.94" style="enable-background:new 0 0 49.94 49.94;" xml:space="preserve">
+                <path d="M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757
+                c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042
+                c0.362,2.109-1.852,3.717-3.746,2.722l-10.814-5.685c-0.752-0.395-1.651-0.395-2.403,0l-10.814,5.685
+                c-1.894,0.996-4.108-0.613-3.746-2.722l2.065-12.042c0.144-0.837-0.134-1.692-0.742-2.285l-8.749-8.528
+                c-1.532-1.494-0.687-4.096,1.431-4.403l12.091-1.757c0.841-0.122,1.568-0.65,1.944-1.412l5.407-10.956
+                C22.602,0.567,25.338,0.567,26.285,2.486z" />
+            </svg>
+        </li>
+        <li class="filled">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 49.94 49.94" style="enable-background:new 0 0 49.94 49.94;" xml:space="preserve">
+                <path d="M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757
+                c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042
+                c0.362,2.109-1.852,3.717-3.746,2.722l-10.814-5.685c-0.752-0.395-1.651-0.395-2.403,0l-10.814,5.685
+                c-1.894,0.996-4.108-0.613-3.746-2.722l2.065-12.042c0.144-0.837-0.134-1.692-0.742-2.285l-8.749-8.528
+                c-1.532-1.494-0.687-4.096,1.431-4.403l12.091-1.757c0.841-0.122,1.568-0.65,1.944-1.412l5.407-10.956
+                C22.602,0.567,25.338,0.567,26.285,2.486z" />
+            </svg>
+        </li>
+        <li class="unfilled">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 49.94 49.94" style="enable-background:new 0 0 49.94 49.94;" xml:space="preserve">
+                <path d="M26.285,2.486l5.407,10.956c0.376,0.762,1.103,1.29,1.944,1.412l12.091,1.757
+                c2.118,0.308,2.963,2.91,1.431,4.403l-8.749,8.528c-0.608,0.593-0.886,1.448-0.742,2.285l2.065,12.042
+                c0.362,2.109-1.852,3.717-3.746,2.722l-10.814-5.685c-0.752-0.395-1.651-0.395-2.403,0l-10.814,5.685
+                c-1.894,0.996-4.108-0.613-3.746-2.722l2.065-12.042c0.144-0.837-0.134-1.692-0.742-2.285l-8.749-8.528
+                c-1.532-1.494-0.687-4.096,1.431-4.403l12.091-1.757c0.841-0.122,1.568-0.65,1.944-1.412l5.407-10.956
+                C22.602,0.567,25.338,0.567,26.285,2.486z" />
+            </svg>
+        </li>
+    </ul>
+</template>
+
+<script>
+export default {
+    name: 'star',
+    props: {
+        rate: {
+            required: true,
+            default: ''
+        }
+    },
+    data() {
+        return {
+            stars: [
+                {
+                    id: 0,
+                    value: false
+                }, {
+                    id: 1,
+                    value: false
+                }, {
+                    id: 2,
+                    value: false
+                }, {
+                    id: 3,
+                    value: false
+                }, {
+                    id: 4,
+                    value: false
+                }
+            ]
+        }
+    },
+    computed: {
+        FillStart() {
+            console.log(this.rate)
+            if (this.rate > 0 && this.rate <= 2) {
+                return this.stars[0].value = true;
+            } else if (this.rate > 2 && this.rate <= 4) {
+                return this.stars[0].value = true,
+                    this.stars[1].value = true;
+            } else if (this.rate > 4 && this.rate <= 6) {
+                return this.stars[0].value = true,
+                    this.stars[1].value = true,
+                    this.stars[2].value = true;
+            } else if (this.rate > 6 && this.rate <= 8) {
+                return this.stars[0].value = true,
+                    this.stars[1].value = true,
+                    this.stars[2].value = true,
+                    this.stars[3].value = true;
+            } else if (this.rate > 8 && this.rate <= 10) {
+                return this.stars[0].value = true,
+                    this.stars[1].value = true,
+                    this.stars[2].value = true,
+                    this.stars[3].value = true,
+                    this.stars[4].value = true;
+            }
+            return this.stars;
+        }
+    }
+}
+</script>
+
+<style>
+.star {
+    list-style: none;
+    display: inline-block;
+    padding: 0px;
+}
+
+.star li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.star li.unfilled svg,
+.star li.filled svg {
+    height: 15px;
+    width: 15px;
+}
+
+.star li.unfilled svg path {
+    fill: transparent;
+    stroke: #777;
+    stroke-width: 4px;
+}
+
+.star li.filled svg path {
+    fill: #F54A44;
+    stroke: #F54A44;
+    stroke-width: 2px;
+}
+</style>
