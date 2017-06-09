@@ -1,7 +1,6 @@
 <template>
     <f7-page class="single">
-        <loader :show="loading"></loader>
-        <div v-if="!loading">
+        <div>
             <div class="header" :style="{ 'background-image': 'url(' + backdropUrl + ')' }">
                 <f7-link back class="back_link">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 31.494 31.494" style="enable-background:new 0 0 31.494 31.494;" xml:space="preserve">
@@ -36,6 +35,12 @@
             <f7-block class="movie_description">
                 {{movie.overview}}
             </f7-block>
+            <p class="similar_title">Trailer</p>
+            <f7-block>
+                <figure class="youtube_img" @click="OpenYoutube">
+                    <img :src="VideoPath" width="100%" height="auto"/>
+                </figure>
+            </f7-block>
             <!--<f7-block class="movie_website" @click="OpenWebsite(movie.homepage)">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
                     <path d="M47.007,5.305l0.049-0.032l-1.323-0.816c-0.078-0.048-0.16-0.088-0.238-0.136c-0.434-0.262-0.875-0.513-1.323-0.754   c-0.227-0.122-0.457-0.237-0.687-0.353c-0.337-0.171-0.678-0.334-1.022-0.492c-0.203-0.093-0.405-0.188-0.609-0.276   c-0.535-0.231-1.076-0.448-1.626-0.648c-0.113-0.041-0.228-0.076-0.342-0.116c-0.481-0.168-0.968-0.324-1.459-0.468   c-0.157-0.046-0.314-0.091-0.472-0.134c-0.544-0.15-1.094-0.287-1.65-0.406c-0.053-0.011-0.104-0.025-0.157-0.036   c-0.615-0.129-1.237-0.235-1.865-0.325c-0.138-0.02-0.278-0.035-0.416-0.053c-0.491-0.063-0.985-0.115-1.483-0.154   c-0.168-0.013-0.335-0.028-0.503-0.038C31.258,0.026,30.632,0,30,0c-0.683,0-1.358,0.031-2.03,0.076   c-0.176,0.012-0.351,0.025-0.527,0.04c-0.631,0.053-1.258,0.121-1.878,0.214c-0.062,0.009-0.124,0.017-0.186,0.026   c-0.624,0.097-1.24,0.219-1.85,0.354c-0.202,0.044-0.403,0.091-0.604,0.14c-0.562,0.136-1.118,0.285-1.667,0.452   c-0.174,0.053-0.346,0.111-0.518,0.167c-0.492,0.16-0.979,0.333-1.459,0.518c-0.22,0.084-0.44,0.17-0.658,0.26   c-0.552,0.227-1.098,0.465-1.633,0.724c-0.176,0.085-0.349,0.18-0.524,0.269c-0.418,0.212-0.83,0.433-1.236,0.664   c-0.203,0.115-0.405,0.229-0.606,0.349c-0.508,0.305-1.007,0.623-1.495,0.956c-0.067,0.046-0.138,0.084-0.204,0.131l-0.545,0.378   l0.005,0.022C4.887,11.197,0,20.036,0,30c0,16.542,13.458,30,30,30s30-13.458,30-30C60,19.769,54.848,10.722,47.007,5.305z    M15.089,6.318c0.323-0.204,0.65-0.401,0.98-0.591c0.183-0.106,0.364-0.215,0.55-0.317c0.464-0.254,0.935-0.491,1.411-0.717   c0.206-0.098,0.414-0.189,0.623-0.282c0.349-0.155,0.7-0.302,1.054-0.443c0.195-0.078,0.389-0.159,0.587-0.232   c0.506-0.188,1.018-0.36,1.534-0.517c0.189-0.058,0.382-0.109,0.573-0.163c0.401-0.113,0.804-0.218,1.211-0.313   c0.182-0.043,0.364-0.088,0.547-0.127c0.559-0.119,1.122-0.223,1.689-0.308c0.129-0.019,0.26-0.032,0.389-0.05   c0.478-0.064,0.959-0.116,1.442-0.156c0.168-0.014,0.337-0.028,0.506-0.039C28.788,2.027,29.392,2,30,2   c0.529,0,1.057,0.018,1.583,0.048c0.151,0.008,0.3,0.023,0.45,0.034c0.379,0.028,0.758,0.06,1.135,0.103   c0.167,0.019,0.333,0.042,0.499,0.064c0.365,0.048,0.728,0.102,1.09,0.165c0.161,0.028,0.321,0.056,0.481,0.086   c0.377,0.072,0.752,0.153,1.125,0.24c0.138,0.032,0.277,0.062,0.414,0.096c0.46,0.115,0.917,0.241,1.37,0.379   c0.046,0.014,0.093,0.025,0.139,0.039c0.484,0.15,0.962,0.316,1.437,0.491c0.19,0.071,0.376,0.148,0.564,0.223   c0.276,0.109,0.55,0.22,0.823,0.338c0.236,0.103,0.47,0.209,0.703,0.318c0.21,0.098,0.418,0.199,0.626,0.302   C42.591,5,42.743,5.079,42.894,5.158c-3.822,1.532-6.196,3.409-8.853,6.866c-0.377,0.489-0.568,1.088-0.551,1.686   c-0.229-0.552-0.565-0.972-1.013-1.266c-0.926-0.608-2.138-0.565-3.703,0.133l-0.285,0.032c-2.006,0.224-3.111,0.348-3.211,2.53   c-0.051,1.104,0.541,2.194,1.508,2.776c0.245,0.147,0.502,0.254,0.764,0.319c0.028,0.095,0.072,0.192,0.137,0.29l0.403,0.557   l0.643-0.107c0.55-0.093,1.012-0.113,1.325-0.104c-0.047,0.444,0.031,0.898,0.231,1.303c0.278,0.562,0.756,0.972,1.346,1.154   c0.564,0.174,0.613,0.343,0.681,0.576c0.321,1.105,1.051,1.922,2.003,2.239c0.91,0.305,1.921,0.108,2.778-0.535   c0.514-0.389,0.805-0.308,1.928,0.235c0.733,0.354,1.646,0.796,2.828,0.948c0.186,0.023,0.297,0.079,0.338,0.122   c0.813,0.854,1.437,1.916,2.04,2.943c0.924,1.573,1.797,3.06,3.299,3.839c1.175,0.611-0.141,4.06-0.772,5.717   c-0.127,0.334-0.246,0.645-0.345,0.923c-1.524,1.174-2.455,2.507-3.356,3.797c-0.807,1.155-1.641,2.35-2.934,3.462   c-1.953,1.681-3.605,2.688-5.523,3.37c-0.315,0.111-0.52-0.076-0.594-0.163c-0.07-0.082-0.216-0.305-0.06-0.584   c1.973-3.532,4.255-8.513,1.301-10.958c-2.896-2.396-3.98-5.875-2.764-8.861c0.517-1.268-0.06-2.69-1.337-3.358   c-0.109-0.133-0.187-0.714-0.238-1.099c-0.113-0.845-0.253-1.896-0.878-2.813c-0.26-0.38-0.726-0.723-1.047-0.879   c-1.221-0.598-2.393-0.769-3.526-0.933c-0.902-0.132-1.755-0.256-2.625-0.589c-3.313-1.271-5.671-6.646-7.393-10.572   c-0.246-0.562-0.483-1.101-0.711-1.606C14.847,6.472,14.968,6.395,15.089,6.318z M30,58C14.561,58,2,45.439,2,30   c0-9.077,4.345-17.156,11.061-22.275c0.177,0.397,0.358,0.807,0.546,1.235c1.967,4.485,4.415,10.066,8.508,11.636   c1.077,0.413,2.082,0.56,3.053,0.7c1.026,0.149,1.995,0.29,2.937,0.752c0.076,0.037,0.233,0.159,0.273,0.209   c0.357,0.524,0.454,1.248,0.547,1.948c0.129,0.966,0.275,2.061,1.253,2.578c0.318,0.169,0.596,0.509,0.453,0.86   c-1.553,3.812-0.242,8.191,3.341,11.157c0.918,0.76,1.356,2.842-1.772,8.442c-0.515,0.922-0.405,2.041,0.279,2.851   c0.497,0.587,1.202,0.905,1.933,0.905c0.286,0,0.576-0.049,0.859-0.149c2.165-0.77,4.006-1.888,6.157-3.739   c1.485-1.276,2.392-2.575,3.27-3.832c0.886-1.269,1.724-2.468,3.097-3.479c0.2-0.146,0.348-0.345,0.427-0.575   c0.108-0.316,0.25-0.688,0.406-1.098c1.028-2.696,2.582-6.771-0.174-8.204c-0.991-0.515-1.688-1.702-2.497-3.077   c-0.63-1.073-1.345-2.289-2.316-3.311c-0.376-0.395-0.906-0.646-1.53-0.727c-0.86-0.11-1.547-0.443-2.213-0.765   c-1.097-0.531-2.464-1.191-4.001-0.034c-0.232,0.175-0.583,0.356-0.943,0.238c-0.32-0.107-0.581-0.435-0.715-0.899   c-0.194-0.671-0.599-1.495-2.012-1.931c-0.062-0.02-0.11-0.063-0.143-0.131c-0.044-0.089-0.049-0.199-0.003-0.325   c0.189-0.515,0.111-1.035-0.214-1.428c-0.357-0.432-0.994-0.654-1.901-0.668c-0.035-0.157-0.115-0.316-0.263-0.471l-0.607-0.555   l-0.682,0.402c-0.177,0.105-0.377,0.092-0.594-0.04c-0.336-0.201-0.559-0.601-0.542-0.971c0.01-0.229,0.025-0.359,0.038-0.434   c0.245-0.072,0.83-0.138,1.398-0.201l0.607-0.069l0.147-0.068c0.893-0.415,1.608-0.541,1.912-0.344   c0.123,0.081,0.519,0.469,0.474,2.076l-0.025,0.888l0.878,0.13c1.141,0.171,1.987-0.052,2.514-0.657   c0.545-0.626,0.644-1.555,0.291-2.761c-0.051-0.175-0.006-0.39,0.115-0.547c2.767-3.6,5.089-5.257,9.508-6.783   C52.866,11.45,58,20.134,58,30C58,45.439,45.439,58,30,58z"></path>
@@ -43,7 +48,7 @@
                 See Movie Wesbite
             </f7-block>-->
             <p class="similar_title">Similar Movies</p>
-            <f7-swiper class="movie_list similar_movie" v-if="!loading" :params="{speed:500, slidesPerView: 2.5, spaceBetween: 15}">
+            <f7-swiper class="movie_list similar_movie" v-if="!loading" :params="options">
                 <card v-for="(movie, index) of similar" :id="movie.id" :genres="movie.genre_ids[0]" :lang="movie.original_language" :title="movie.title" :poster="movie.poster_path"></card>
             </f7-swiper>
         </div>
@@ -68,7 +73,9 @@ export default {
             list: Genres,
             poster:'',
             background:'',
-            loading: true
+            video:'',
+            loading: true,
+            options:{speed:500, slidesPerView: 2.5, spaceBetween: 15, freeModeSticky: true}
         }
     },
     components: {
@@ -78,24 +85,16 @@ export default {
         'loader': Loading
     },
     created() {
-        return this.$http.get('https://api.themoviedb.org/3/movie/' + this.id + '?api_key=fcc3e3e91b7cc38185ef902ca797ee11').then(response => {
-            this.movie = response.body;
-            this.poster = response.body.poster_path;
-            this.background = response.body.backdrop_path;
-        }, response => {
-            console.log(response);
-        }),
-            this.$http.get('https://api.themoviedb.org/3/movie/' + this.id + '/similar?api_key=fcc3e3e91b7cc38185ef902ca797ee11').then(response => {
-                this.similar = response.body.results;
-                this.loading = false;
-            }, response => {
-                console.log(response);
-            })
-    },
-    mounted (){
-        $(".page-content").scroll(function(e){
-            console.log(e);
-        });
+        let device = Framework7.prototype.device;
+        if(device.iphone){
+            this.options.slidesPerView = 2.5;
+        }else if(device.ipad){
+            this.options.slidesPerView = 5.5;
+        }
+        return this.GetMovieInfo(),
+        this.GetVideo(),
+        this.GetSimilar();
+            
     },
     computed: {
         posterUrl() {
@@ -110,6 +109,9 @@ export default {
         },
         GetGenre() {
             return _.slice(this.movie.genres, 0, 3);
+        },
+        VideoPath() {
+            return `https://img.youtube.com/vi/${this.video.key}/0.jpg`;
         }
     },
     methods : {
@@ -117,8 +119,55 @@ export default {
         //     console.log(data);
         //     return window.open(encodeURI(data), '_system')
         // }
+        OpenYoutube : function () {
+            return window.open(encodeURI(`https://www.youtube.com/watch?v=${this.video.key}`), '_system')
+        },
         Share :  function (){
-            console.log('share')
+            console.log('share');
+            
+            var options = {
+            message: 'Watch ' + this.movie.original_title + ' Trailer', 
+            subject: 'NextMovie app', 
+            files: ['', ''],
+            url: `https://www.youtube.com/watch?v=${this.video.key}`,
+            chooserTitle: 'Share with friends' 
+            }
+
+            var onSuccess = function(result) {
+            console.log("Share completed? " + result.completed); 
+            console.log("Shared to app: " + result.app); 
+            }
+
+            var onError = function(msg) {
+            console.log("Sharing failed with message: " + msg);
+            }
+
+            window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
+        },
+        GetMovieInfo : function () {
+            this.$http.get('https://api.themoviedb.org/3/movie/' + this.id + '?api_key=fcc3e3e91b7cc38185ef902ca797ee11&language=en-US').then(response => {
+                this.movie = response.body;
+                this.poster = response.body.poster_path;
+                this.background = response.body.backdrop_path;
+            }, response => {
+                console.log(response);
+            })
+        },
+        GetSimilar : function () {
+            this.$http.get('https://api.themoviedb.org/3/movie/' + this.id + '/similar?api_key=fcc3e3e91b7cc38185ef902ca797ee11&language=en-US').then(response => {
+                this.similar = response.body.results;
+                this.loading = false;
+            }, response => {
+                console.log(response);
+            })
+        },
+        GetVideo : function () {
+            this.$http.get('https://api.themoviedb.org/3/movie/' + this.id + '/videos?api_key=fcc3e3e91b7cc38185ef902ca797ee11&language=en-US').then(response => {
+                let item = _.find(response.body.results, { 'type': "Trailer" });
+                this.video = item;
+            }, response => {
+                console.log(response);
+            })
         }
     }
 }
@@ -130,7 +179,6 @@ export default {
 }
 
 .header {
-    /*background-image: linear-gradient(-133deg, #FD784B 0%, #F54A44 100%);*/
     background-repeat: no-repeat;
     background-size: cover;
     height: auto;
@@ -143,6 +191,9 @@ export default {
     left: 15px;
     top: 40px;
     z-index: 99;
+    height: 50px;
+    width: 50px;
+    text-align: left;
 }
 
 .header .share_icon{
@@ -150,6 +201,9 @@ export default {
     right: 15px;
     top: 40px;
     z-index: 99;
+    height: 50px;
+    width: 50px;
+    text-align: right;
 }
 
 .header .back_link svg{
@@ -187,7 +241,6 @@ export default {
     background-color: #fff;
     z-index: 10;
     height: 50px;
-    /*transform: rotate(5deg);*/
     clip-path: polygon(0 0, 0 0,100% 100%, 0 100%);
 }
 
@@ -274,6 +327,46 @@ export default {
 
 .single .movie_website svg path{
     fill: #444;
+}
+
+.single .youtube_img{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border-radius: 6px;
+    box-shadow: 0px 3px 20px 3px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.single .youtube_img img{
+    display: block;
+}
+
+.single .youtube_img::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    height: 100px;
+    width: 100px;
+    background-size: 100px;
+    background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA0NjEuMDAxIDQ2MS4wMDEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ2MS4wMDEgNDYxLjAwMTsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxwYXRoIHN0eWxlPSJmaWxsOiNGNjFDMEQ7IiBkPSJNMzY1LjI1Nyw2Ny4zOTNIOTUuNzQ0QzQyLjg2Niw2Ny4zOTMsMCwxMTAuMjU5LDAsMTYzLjEzN3YxMzQuNzI4ICBjMCw1Mi44NzgsNDIuODY2LDk1Ljc0NCw5NS43NDQsOTUuNzQ0aDI2OS41MTNjNTIuODc4LDAsOTUuNzQ0LTQyLjg2Niw5NS43NDQtOTUuNzQ0VjE2My4xMzcgIEM0NjEuMDAxLDExMC4yNTksNDE4LjEzNSw2Ny4zOTMsMzY1LjI1Nyw2Ny4zOTN6IE0zMDAuNTA2LDIzNy4wNTZsLTEyNi4wNiw2MC4xMjNjLTMuMzU5LDEuNjAyLTcuMjM5LTAuODQ3LTcuMjM5LTQuNTY4VjE2OC42MDcgIGMwLTMuNzc0LDMuOTgyLTYuMjIsNy4zNDgtNC41MTRsMTI2LjA2LDYzLjg4MUMzMDQuMzYzLDIyOS44NzMsMzA0LjI5OCwyMzUuMjQ4LDMwMC41MDYsMjM3LjA1NnoiLz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==);
+}
+
+.single .youtube_img::before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    height: 70px;
+    width: 70px;
+    background: #fff;
 }
 
 .single .similar_title {

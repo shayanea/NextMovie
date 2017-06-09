@@ -59,13 +59,15 @@ export default {
             return this.description.substring(0, 75) + '...';
         },
         posterUrl() {
-            if(typeof this.poster !== undefined){
+            if(typeof this.poster !== "undefined" || this.poster !== null){
                 return `http://image.tmdb.org/t/p/w185//${this.poster}`;
             }
         },
         FindGenres() {
             let item = _.find(this.list, { 'id': this.genres });
-            return item.name;
+            if(typeof item !== "undefined"){
+                return item.name;
+            }
         }
     }
 }
@@ -86,11 +88,14 @@ export default {
 }
 
 .movie_list .movie_img_holder {
-    width: 129px;
-    height: 200px;
     border-radius: 6px;
     box-shadow: 0px 3px 20px 3px rgba(0, 0, 0, 0.3);
     margin-bottom: 5px;
+}
+
+.row .movie_img_holder{
+    width: 129px;
+    height: 200px;
 }
 
 .row .movie_img_holder {
@@ -102,14 +107,13 @@ export default {
     font-size: 14px;
     color: #fff;
     display: inline-block;
-    width: 135px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
 }
 
 .row .movie_title{
-    width: 100%;
+    width: 100%!important;
 }
 
 .similar_movie .movie_title {

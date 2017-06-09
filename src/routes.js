@@ -6,5 +6,9 @@ export default [
     {
         path: '/fullpage/',
         component: require('./pages/fullpage.vue')
+    },
+    {
+        path: '/search/',
+        component: require('./pages/search.vue')
     }
 ]

@@ -9,9 +9,10 @@
             </f7-link>
         </f7-block-title>
         <f7-block-title>
-          {{query}}  Movies
+            {{search}}
         </f7-block-title>
-        <f7-grid class="movie_list">
+        <loader :show="loading"></loader>
+        <f7-grid v-if="!loading" class="movie_list">
             <card v-for="(movie, index) of list" :id="movie.id" :genres="movie.genre_ids[0]" :lang="movie.original_language" :title="movie.title" :poster="movie.poster_path"></card>
         </f7-grid>
     </f7-page>
@@ -20,20 +21,34 @@
 <script>
 import State from '../store.js'
 import Card from '../component/gridcard'
+import Loader from '../component/loader'
 
 export default {
-    name: 'fullpage',
+    name:'searchlist',
     data () {
         return {
-            query:State['query'],
-            list:''
+            search:State['search'],
+            list:'',
+            loading:''
         }
     },
     components: {
-        'card':Card
+        'card':Card,
+        'loader': Loader
     },
     created() {
-        return this.list = State[this.query];
+        return this.Search(),
+        this.list = State[this.search];
+    },
+    methods: {
+        Search : function () {
+            this.$http.get('https://api.themoviedb.org/3/search/movie?api_key=fcc3e3e91b7cc38185ef902ca797ee11&language=en-US&region=US&page=1&query=' + this.search).then(response => {
+                this.list= response.body.results;
+                this.loading = false;
+            }, response => {
+                console.log(response);
+            });
+        }
     }
 }
 </script>
@@ -42,9 +57,6 @@ export default {
 .main_page .back_link{
     position: absolute;
     left: 0;
-    height: 50px;
-    width: 50px;
-    text-align: left;
 }
 
 .main_page .back_link svg{
@@ -52,3 +64,4 @@ export default {
     width: 20px;
 }
 </style>
+
