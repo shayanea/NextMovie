@@ -5,20 +5,6 @@
 		<!-- Statusbar -->
 		<f7-statusbar></f7-statusbar>
 	
-		<!-- Right Panel -->
-		<f7-panel left reveal layout="dark">
-			<f7-view id="left-panel-view" navbar-through :dynamic-navbar="true">
-				<f7-navbar title="Menu" sliding></f7-navbar>
-				<f7-pages>
-					<f7-page>
-						<f7-block>
-							<p>Favorite</p>
-						</f7-block>
-					</f7-page>
-				</f7-pages>
-			</f7-view>
-		</f7-panel>
-	
 		<f7-views>
 			<f7-view id="main-view" :swipeBackPage="true" main>
 				<!-- Pages -->

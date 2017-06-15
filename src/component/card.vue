@@ -1,7 +1,7 @@
 <template>
     <f7-swiper-slide>
         <f7-link href="" @click="OpenSingleCard">
-            <img :src="posterUrl" class="movie_img_holder" />
+            <img v-lazy="posterUrl" class="movie_img_holder">
             <div class="movie_title">{{title}}</div>
             <div class="movie_lang">{{lang}}</div>
             <div class="movie_lang"> - {{FindGenres}}</div>
@@ -35,7 +35,7 @@ export default {
         },
         poster: {
             type: String,
-            default: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/22043/backdrop_ggwxvq_1.jpg'
+            default: 'http://via.placeholder.com/120x200?text=NextMovie'
         }
     },
     data() {
@@ -52,6 +52,10 @@ export default {
                 return this.$f7.mainView.router.load({url: '/single/'}),
                 State['single_movie_id'] = this.id;
             }
+        },
+        imgLoad :function(e) {
+            console.log(e);
+            console.log('loaded');
         }
     },
     computed: {
@@ -81,6 +85,7 @@ export default {
     border-radius: 6px;
     box-shadow: 0px 3px 20px 3px rgba(0, 0, 0, 0.3);
     margin-bottom: 5px;
+    background-color: #eee;
 }
 
 .movie_list .movie_title {

@@ -1,7 +1,7 @@
 <template>
     <f7-page class="single">
         <div>
-            <div class="header" :style="{ 'background-image': 'url(' + backdropUrl + ')' }">
+            <div class="header" v-lazy:background-image="backdropUrl">
                 <f7-link back class="back_link">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 31.494 31.494" style="enable-background:new 0 0 31.494 31.494;" xml:space="preserve">
                         <path style="fill: rgb(255, 255, 255);" d="M10.273,5.009c0.444-0.444,1.143-0.444,1.587,0c0.429,0.429,0.429,1.143,0,1.571l-8.047,8.047h26.554  c0.619,0,1.127,0.492,1.127,1.111c0,0.619-0.508,1.127-1.127,1.127H3.813l8.047,8.032c0.429,0.444,0.429,1.159,0,1.587  c-0.444,0.444-1.143,0.444-1.587,0l-9.952-9.952c-0.429-0.429-0.429-1.143,0-1.571L10.273,5.009z"></path>
@@ -14,7 +14,7 @@
                     </svg>
                 </f7-link>
                 <figure>
-                    <img :src="posterUrl" class="movie_img_holder" />
+                    <img v-lazy="posterUrl" class="movie_img_holder" />
                     <favorite :title="movie.original_title"></favorite>
                 </figure>
             </div>
@@ -38,7 +38,7 @@
             <p class="similar_title">Trailer</p>
             <f7-block>
                 <figure class="youtube_img" @click="OpenYoutube">
-                    <img :src="VideoPath" width="100%" height="auto"/>
+                    <img v-lazy="VideoPath" width="100%" height="auto"/>
                 </figure>
             </f7-block>
             <!--<f7-block class="movie_website" @click="OpenWebsite(movie.homepage)">
@@ -93,8 +93,9 @@ export default {
         }
         return this.GetMovieInfo(),
         this.GetVideo(),
-        this.GetSimilar();
-            
+        this.GetSimilar(),
+        window.f7.initImagesLazyLoad('.page');
+        
     },
     computed: {
         posterUrl() {
@@ -184,6 +185,7 @@ export default {
     height: auto;
     position: relative;
     padding-top: 20px;
+    background-color: #eee;
 }
 
 .header .back_link{
@@ -257,6 +259,7 @@ export default {
     height: 200px;
     border-radius: 6px;
     box-shadow: 0px 3px 20px 3px rgba(0, 0, 0, 0.3);
+    background-color: #eee;
 }
 
 .single .movie_title {
@@ -340,6 +343,7 @@ export default {
 
 .single .youtube_img img{
     display: block;
+    background-color: #eee;
 }
 
 .single .youtube_img::after{

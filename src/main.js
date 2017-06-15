@@ -28,30 +28,36 @@ import App from './app'
 
 import Http from 'vue-resource'
 
+import VueLazyload from 'vue-lazyload'
+
 // Init F7 Vue Plugin
 Vue.use(Framework7Vue)
 
 Vue.use(Http);
 
+Vue.use(VueLazyload, {
+	preLoad: 1.3,
+	attempt: 1
+})
+
 // Init App
 new Vue({
-  el: '#app',
-  template: '<app/>',
-  // Init Framework7 by passing parameters here
-  framework7: {
-    root: '#app',
-    /* Uncomment to enable Material theme: */
-    // material: true,
-    swipePanel: 'left',
-    routes: Routes,
-  },
-  // Register App Component
-  components: {
-    app: App
-  }
+	el: '#app',
+	template: '<app/>',
+	// Init Framework7 by passing parameters here
+	framework7: {
+		root: '#app',
+		/* Uncomment to enable Material theme: */
+		// material: true,
+		swipePanel: 'left',
+		routes: Routes,
+	},
+	// Register App Component
+	components: {
+		app: App
+	}
 });
 
-
-document.addEventListener('deviceready', function(){
-console.log(StatusBar);
-StatusBar.styleBlackTranslucent();});
+document.addEventListener('deviceready', function () {
+	StatusBar.styleBlackTranslucent();
+});
