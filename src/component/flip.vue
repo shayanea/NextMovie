@@ -1,20 +1,19 @@
 <template>
-    <f7-col width="50">
+    <f7-swiper-slide>
         <f7-link href="" @click="OpenSingleCard">
-            <img v-lazy="posterUrl" class="movie_img_holder" />
+            <img v-lazy="posterUrl" class="movie_img_holder">
             <div class="movie_title">{{title}}</div>
             <div class="movie_lang">{{lang}}</div>
             <div class="movie_lang"> - {{FindGenres}}</div>
         </f7-link>
-    </f7-col>
+    </f7-swiper-slide>
 </template>
 
 <script>
 import Genres from '../genres.js'
-import State from '../store.js'
 
 export default {
-    name: 'gridcard',
+    name:'flipcard',
     props: {
         id: {
             type: Number,
@@ -35,10 +34,10 @@ export default {
         },
         poster: {
             type: String,
-            default: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/22043/backdrop_ggwxvq_1.jpg'
+            default: 'http://via.placeholder.com/120x200?text=NextMovie'
         }
     },
-    data() {
+    data () {
         return {
             list: Genres
         }
@@ -52,15 +51,16 @@ export default {
                 return this.$f7.mainView.router.load({url: '/single/'}),
                 State['single_movie_id'] = this.id;
             }
+        },
+        imgLoad :function(e) {
+            console.log(e);
+            console.log('loaded');
         }
     },
     computed: {
-        ShortDescription() {
-            return this.description.substring(0, 75) + '...';
-        },
         posterUrl() {
             if(typeof this.poster !== "undefined" || this.poster !== null){
-                return `http://image.tmdb.org/t/p/w185//${this.poster}`;
+                return `http://image.tmdb.org/t/p/w300//${this.poster}`;
             }
         },
         FindGenres() {
@@ -74,57 +74,5 @@ export default {
 </script>
 
 <style>
-.row{
-    margin: 20px auto;
-    padding: 0 15px;
-}
 
-.row .col-50{
-    margin-bottom: 15px;
-}
-
-.movie_list a {
-    padding: 0 20px 0 0;
-}
-
-.movie_list .movie_img_holder {
-    border-radius: 6px;
-    box-shadow: 0px 3px 20px 3px rgba(0, 0, 0, 0.3);
-    margin-bottom: 5px;
-}
-
-.row .movie_img_holder {
-    width: 100%;
-    height: auto;
-    min-height: 248px;
-    max-height: 248px;
-}
-
-.movie_list .movie_title {
-    font-size: 14px;
-    color: #fff;
-    display: inline-block;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.row .movie_title{
-    width: 100%!important;
-}
-
-.similar_movie .movie_title {
-    color: #777;
-}
-
-.movie_list .movie_lang {
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.3);
-    text-transform: uppercase;
-    display: inline-block;
-}
-
-.similar_movie .movie_lang {
-    display: none;
-}
 </style>

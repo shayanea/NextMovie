@@ -30,6 +30,8 @@ import Http from 'vue-resource'
 
 import VueLazyload from 'vue-lazyload'
 
+import Store from './store'
+
 // Init F7 Vue Plugin
 Vue.use(Framework7Vue)
 
@@ -55,6 +57,14 @@ new Vue({
 	// Register App Component
 	components: {
 		app: App
+	},
+
+	mounted(){
+		console.log('mounted');
+		if(localStorage.getItem('favorites') == null){
+			return localStorage.setItem('favorites',JSON.stringify([])),
+			Store.flist = [];           
+		}
 	}
 });
 

@@ -10,7 +10,7 @@
 export default {
     name: 'favorite',
     props: {
-        title: {
+        movie: {
             required: true,
             default: ''
         }
@@ -24,8 +24,22 @@ export default {
         AddToFavorite : function(){
             this.$f7.addNotification({
                 title: 'Notification',
-                message: `${this.title} added to your favorite list.`
+                message: `${this.movie.original_title} added to your favorite list.`,
+                closeOnClick:true
             });
+            this.UpdateFavoritesList(this.movie);
+        },
+        UpdateFavoritesList :function(data){
+            let Items = JSON.parse(localStorage.getItem('favorites'));
+            Items.push({
+                id:data.id,
+                title:data.title,
+                lang:data.original_language,
+                genres:[data.genres[0].id],
+                poster:data.poster_path
+            });
+            console.log(Items);
+            localStorage.setItem('favorites',JSON.stringify(Items));
         }
     }
 }

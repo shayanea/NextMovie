@@ -10,5 +10,9 @@ export default [
     {
         path: '/search/',
         component: require('./pages/search.vue')
+    },
+    {
+        path: '/favorites/',
+        component: require('./pages/flist.vue')
     }
 ]

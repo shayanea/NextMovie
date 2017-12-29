@@ -33,6 +33,7 @@ export default {
         'card':Card
     },
     created() {
+        console.log(State[this.query])
         return this.list = State[this.query];
     }
 }

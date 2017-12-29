@@ -38,7 +38,7 @@ export default {
             Upcoming: [],
             loading: true,
             state: State,
-            options:{speed:500, slidesPerView: 2.5, spaceBetween: 15, freeModeSticky: true}
+            options:{speed:500, slidesPerView: 2.5, spaceBetween: 15, freeMode: true}
         }
     },
     components: {
@@ -109,7 +109,7 @@ export default {
 }
 </script>
 
-<style scope>
+<style>
 .movie_list {
     list-style: none;
     margin-bottom: 15px;
