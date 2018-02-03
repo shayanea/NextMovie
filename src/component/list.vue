@@ -21,7 +21,7 @@
 
 <script>
 import Card from './card'
-import Loader from './loader'
+import Loader from './loading'
 import State from '../store.js'
 import Search from './search'
 
@@ -67,8 +67,8 @@ export default {
     },
     methods : {
         GetPopularMovies : function () {
-            this.$http.get('https://api.themoviedb.org/3/movie/popular?api_key=fcc3e3e91b7cc38185ef902ca797ee11&region=US').then(response => {
-                this.Popular = _.slice(response.body.results, 0, 8);
+            this.$http.get(`https://api.themoviedb.org/3/movie/popular?api_key=${this.key}&region=US`).then(response => {
+                this.Popular = response.body.results.slice(0, 8);
                 this.state['popular'] = response.body.results;
                 localStorage.setItem('Popular',JSON.stringify(response.body.results));
                 localStorage.setItem('LastFetch',new Date().setHours(0,0,0,0));
@@ -77,8 +77,8 @@ export default {
             })
         },
         GetUpcomingMoives : function () {
-            this.$http.get('https://api.themoviedb.org/3/movie/upcoming?api_key=fcc3e3e91b7cc38185ef902ca797ee11&region=US').then(response => {
-                this.Upcoming = _.slice(response.body.results, 0, 8);
+            this.$http.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${this.key}&region=US`).then(response => {
+                this.Upcoming = response.body.results.slice(0, 8);
                 this.state['upcoming'] = response.body.results;
                 localStorage.setItem('Upcoming',JSON.stringify(response.body.results));
                 this.loading = false;
@@ -87,9 +87,9 @@ export default {
             });
         },
         GetDataFromLocalDb : function () {
-            this.Popular = _.slice(JSON.parse(localStorage.getItem('Popular')), 0, 8);
+            this.Popular = JSON.parse(localStorage.getItem('Popular')).slice(0, 8);
             this.state['popular'] = JSON.parse(localStorage.getItem('Popular'));
-            this.Upcoming = _.slice(JSON.parse(localStorage.getItem('Upcoming')), 0, 8);
+            this.Upcoming = JSON.parse(localStorage.getItem('Upcoming')).slice(0, 8);
             this.state['upcoming'] = JSON.parse(localStorage.getItem('Upcoming'));
             
             let self = this;

@@ -11,9 +11,9 @@
         <f7-block-title>
             Searched : {{search}}
         </f7-block-title>
-        <loader :show="loading"></loader>
+        <loading :show="showLoading"></loading>
         <f7-grid v-if="!loading" class="movie_list">
-            <card v-for="(movie, index) of list" :id="movie.id" :genres="movie.genre_ids[0]" :lang="movie.original_language" :title="movie.title" :poster="movie.poster_path"></card>
+            <card v-for="(movie, index) of list" :key="index" :id="movie.id" :genres="movie.genre_ids[0]" :lang="movie.original_language" :title="movie.title" :poster="movie.poster_path"></card>
         </f7-grid>
     </f7-page>
 </template>
@@ -21,7 +21,7 @@
 <script>
 import State from '../store.js'
 import Card from '../component/gridcard'
-import Loader from '../component/loader'
+import Loading from '../component/loading'
 
 export default {
     name:'searchlist',
@@ -29,12 +29,12 @@ export default {
         return {
             search:State['search'],
             list:'',
-            loading:''
+            showLoading:''
         }
     },
     components: {
         'card':Card,
-        'loader': Loader
+        'loading': Loading
     },
     created() {
         return this.Search(),
@@ -42,11 +42,11 @@ export default {
     },
     methods: {
         Search : function () {
-            this.$http.get('https://api.themoviedb.org/3/search/movie?api_key=fcc3e3e91b7cc38185ef902ca797ee11&language=en-US&region=US&page=1&query=' + this.search).then(response => {
+            this.$http.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.key}&language=en-US&region=US&page=1&query=${this.search}`).then(response => {
                 this.list= response.body.results;
-                this.loading = false;
-            }, response => {
-                console.log(response);
+                this.showLoading = false;
+            }).catch(err => {
+                console.log(err);
             });
         }
     }

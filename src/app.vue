@@ -5,7 +5,7 @@
 		<!-- Statusbar -->
 		<f7-statusbar></f7-statusbar>
 	
-		<f7-panel left reveal>
+		<!-- <f7-panel left reveal>
 			<div class="logo"></div>
 			<div class="content-block">
 				<ul class="panel_menu">
@@ -27,7 +27,7 @@
 				</ul>
 			</div>
 			<p class="version">version 0.0.2</p>
-		</f7-panel>
+		</f7-panel> -->
 
 		<f7-views>
 			<f7-view id="main-view" :swipeBackPage="true" main>

@@ -4,7 +4,7 @@
             <img v-lazy="posterUrl" class="movie_img_holder">
             <div class="movie_title">{{title}}</div>
             <div class="movie_lang">{{lang}}</div>
-            <div class="movie_lang"> - {{FindGenres}}</div>
+            <div class="movie_lang"> - {{FindGenres.name}}</div>
         </f7-link>
     </f7-swiper-slide>
 </template>
@@ -52,10 +52,6 @@ export default {
                 return this.$f7.mainView.router.load({url: '/single/'}),
                 State['single_movie_id'] = this.id;
             }
-        },
-        imgLoad :function(e) {
-            console.log(e);
-            console.log('loaded');
         }
     },
     computed: {
@@ -65,10 +61,10 @@ export default {
             }
         },
         FindGenres() {
-            let item = _.find(this.list, { 'id': this.genres });
-            if(typeof item !== "undefined"){
-                return item.name;
-            }
+            return this.list.find(item => {
+                if(item.id == this.genres && typeof item !== "undefined") 
+                    return item
+            });
         }
     }
 }

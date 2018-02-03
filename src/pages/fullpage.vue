@@ -12,7 +12,7 @@
           {{query}}  Movies
         </f7-block-title>
         <f7-grid class="movie_list">
-            <card v-for="(movie, index) of list" :id="movie.id" :genres="movie.genre_ids[0]" :lang="movie.original_language" :title="movie.title" :poster="movie.poster_path"></card>
+            <card v-for="(movie, index) of list" :key="index" :id="movie.id" :genres="movie.genre_ids[0]" :lang="movie.original_language" :title="movie.title" :poster="movie.poster_path"></card>
         </f7-grid>
     </f7-page>
 </template>
@@ -33,7 +33,6 @@ export default {
         'card':Card
     },
     created() {
-        console.log(State[this.query])
         return this.list = State[this.query];
     }
 }

@@ -12,7 +12,7 @@
           Favorites Movies
         </f7-block-title>
         <f7-grid class="movie_list">
-            <card v-for="(movie, index) of list" :id="movie.id" :genres="movie.genres[0]" :lang="movie.lang" :title="movie.title" :poster="movie.poster"></card>
+            <card v-for="(movie, index) of list" :key="index" :id="movie.id" :genres="movie.genres[0]" :lang="movie.lang" :title="movie.title" :poster="movie.poster"></card>
         </f7-grid>
     </f7-page>
 </template>

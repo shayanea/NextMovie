@@ -1,8 +1,6 @@
 // Import Vue
 import Vue from 'vue'
 
-import lodash from 'lodash'
-
 // Import F7
 import Framework7 from 'framework7'
 
@@ -42,6 +40,8 @@ Vue.use(VueLazyload, {
 	attempt: 1
 })
 
+Vue.prototype.key = 'fcc3e3e91b7cc38185ef902ca797ee11';
+
 // Init App
 new Vue({
 	el: '#app',
@@ -60,7 +60,6 @@ new Vue({
 	},
 
 	mounted(){
-		console.log('mounted');
 		if(localStorage.getItem('favorites') == null){
 			return localStorage.setItem('favorites',JSON.stringify([])),
 			Store.flist = [];           
