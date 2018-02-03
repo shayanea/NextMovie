@@ -87,7 +87,7 @@ export default {
     created() {
         console.log(this.id)
         let device = Framework7.prototype.device;
-        device.iphone ? this.options.slidesPerView = 2.5 : this.options.slidesPerView = 5.5
+        device.iphone ? this.options.slidesPerView = 2.5 : this.options.slidesPerView = 5.5;
         return this.GetMovieInfo(),
             this.GetVideo(),
             this.GetSimilar(),
@@ -105,7 +105,7 @@ export default {
             }
         },
         GetGenre() {
-            // return this.movie.genres.slice(0, 3);
+            return this.movie.genres.slice(0, 3);
         },
         VideoPath() {
             return `https://img.youtube.com/vi/${this.video.key}/0.jpg`;
@@ -126,7 +126,7 @@ export default {
             window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
         },
         GetMovieInfo : function () {
-            this.$http.get(`https://api.themoviedb.org/3/movie/' + this.id + '?api_key=${this.key}&language=en-US`).then(response => {
+            this.$http.get(`https://api.themoviedb.org/3/movie/${this.id}?api_key=${this.key}&language=en-US`).then(response => {
                 this.movie = response.body;
                 this.poster = response.body.poster_path;
                 this.background = response.body.backdrop_path;
@@ -136,7 +136,7 @@ export default {
             })
         },
         GetSimilar : function () {
-            this.$http.get(`https://api.themoviedb.org/3/movie/' + this.id + '/similar?api_key=${this.key}&language=en-US`).then(response => {
+            this.$http.get(`https://api.themoviedb.org/3/movie/${this.id}/similar?api_key=${this.key}&language=en-US`).then(response => {
                 this.similar = response.body.results;
                 this.SimilarLaoded = true;
             }).catch(err => {
@@ -144,7 +144,7 @@ export default {
             })
         },
         GetVideo : function () {
-            this.$http.get(`https://api.themoviedb.org/3/movie/' + this.id + '/videos?api_key=${this.key}&language=en-US`).then(response => {
+            this.$http.get(`https://api.themoviedb.org/3/movie/${this.id}/videos?api_key=${this.key}&language=en-US`).then(response => {
                 return this.video = response.body.results.find(item => {
                     return item.type == "Trailer"
                 }),
